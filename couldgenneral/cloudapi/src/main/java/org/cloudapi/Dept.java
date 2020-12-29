@@ -9,6 +9,17 @@ public class Dept implements Serializable{
 	private long dno;
 	private String dname;
 	private String dsource;
+	
+	
+	public Dept() {
+		super();
+	}
+	public Dept(long dno, String dname, String dsource) {
+		super();
+		this.dno = dno;
+		this.dname = dname;
+		this.dsource = dsource;
+	}
 	public long getDno() {
 		return dno;
 	}
