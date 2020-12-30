@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.jufo</groupId>
@@ -32,11 +30,36 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<build>
+		<finalName>cloudgeneral</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-resources-plugin</artifactId>
+			    <configuration>
+			    	<delimiters>
+			    		<delimiter>$</delimiter>
+			    	</delimiters>
+			    </configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<modules>
 		<module>cloudapi</module>
 		<module>cloudapi-provider-8001</module>
 		<module>cloudapi-consumer-80</module>
 		<module>springcloud-eureka</module>
-	</modules>
+    <module>springcloud-eureka-7002</module>
+    <module>springcloud-eureka-7003</module>
+    <module>cloudapi-provider-8002</module>
+    <module>cloudapi-provider-8003</module>
+  </modules>
 </project>

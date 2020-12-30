@@ -14,7 +14,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class DeptConsumerController {
 	
-	private static final String URL_PREFIX = "http://127.0.0.1:8001";
+//	private static final String URL_PREFIX = "http://127.0.0.1:8001";
+	private static final String URL_PREFIX = "http://CLOUD-DEPT";
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -32,6 +33,11 @@ public class DeptConsumerController {
 	@RequestMapping(value="/consumer/dept/get/{id}", method=RequestMethod.GET)
 	public Dept get(@PathVariable(value="id") long id) {
 		return restTemplate.getForObject(URL_PREFIX + "/dept/get/" + id, Dept.class);
+	}
+	
+	@RequestMapping(value="/consumer/dept/discovery", method=RequestMethod.GET)
+	public Object discovery() {
+		return restTemplate.getForObject(URL_PREFIX + "/dept/discovery", Object.class);
 	}
 
 }
