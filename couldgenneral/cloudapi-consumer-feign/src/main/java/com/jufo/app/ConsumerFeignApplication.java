@@ -10,10 +10,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration(exclude= {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
-@ComponentScan(value= {"com.jufo.*"})
+@ComponentScan(value= {"com.jufo.*", "org.cloudapi.*"})
 @EnableConfigurationProperties
 @EnableEurekaClient
-@EnableFeignClients(basePackages = {"org.cloudapi.*"})
+@EnableFeignClients(basePackages = {"com.jufo.*", "org.cloudapi.*"})
 public class ConsumerFeignApplication {
 
 	public static void main(String[] args) {

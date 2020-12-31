@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jufo.service.TestService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 public class TestController {
@@ -35,9 +36,18 @@ public class TestController {
 	}
 	
 	@RequestMapping(value="/dept/get/{id}", method=RequestMethod.GET)
+//	@HystrixCommand(fallbackMethod="hystrixGet")
 	public Dept get(@PathVariable(value="id") long id) {
-		return testService.getDept(id);
+		Dept dept = testService.getDept(id);
+		if (dept == null) {
+			throw new RuntimeException("id: " + id + " has no dept info! ");
+		}
+		return dept;
 	}
+	
+//	public Dept hystrixGet(@PathVariable(value="id") long id) {
+//		return new Dept(id,"id " + id + " has no dept info!","not exist");
+//	}
 	
 	@RequestMapping(value="/dept/discovery", method=RequestMethod.GET)
 	public Object getClient() {
