@@ -1,0 +1,26 @@
+server:
+  port: 9527
+  
+spring:
+  application:
+    name: springcloud-gateway
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka7001.com:7001/eureka/
+      #,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+zuul: 
+  ignored-services: cloud-dept
+  routes:
+    mydept.serviceId: cloud-dept
+    mydept.path: /mydept/**
+    
+info: 
+  app.name: cloudgeneral
+  company.name: www.jufo.com
+  build.artifact: $project.artifactId$
+  build.version: $project.version$
+  

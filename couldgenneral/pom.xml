@@ -63,5 +63,8 @@
     <module>cloudapi-provider-8003</module>
     <module>cloudapi-consumer-feign</module>
     <module>spring-cloud-hytrix-dashboard</module>
-  </modules>
+    <module>springcloud-zuul</module>
+    <module>springcloud-config-3344</module>
+    <module>springcloud-config-client</module>
+	</modules>
 </project>
