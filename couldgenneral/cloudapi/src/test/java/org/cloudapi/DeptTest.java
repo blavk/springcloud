@@ -1,5 +1,6 @@
 package org.cloudapi;
 
+import org.cloudapi.entity.Dept;
 import org.junit.Test;
 
 import com.google.gson.Gson;

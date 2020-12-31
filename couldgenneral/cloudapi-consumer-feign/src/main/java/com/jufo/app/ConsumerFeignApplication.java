@@ -6,20 +6,18 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
-
-import com.rule.MyRuleConfig;
 
 @EnableAutoConfiguration(exclude= {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
 @ComponentScan(value= {"com.jufo.*"})
 @EnableConfigurationProperties
 @EnableEurekaClient
-@RibbonClient(name="CLOUD-DEPT",configuration=MyRuleConfig.class)
-public class ConsumerApplication {
+@EnableFeignClients(basePackages = {"org.cloudapi.*"})
+public class ConsumerFeignApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsumerApplication.class, args);
+		SpringApplication.run(ConsumerFeignApplication.class, args);
 	}
 
 }

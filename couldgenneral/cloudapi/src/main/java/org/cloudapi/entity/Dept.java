@@ -1,4 +1,4 @@
-package org.cloudapi;
+package org.cloudapi.entity;
 
 import java.io.Serializable;
 

@@ -18,9 +18,9 @@ public class CommonConfiguration {
 		return new RestTemplate();
 	}
 	
-//	@Bean
-//	public IRule getRule() {
-//		return new RoundRobinRule();
-//	}
+	@Bean
+	public IRule getRule() {
+		return new RoundRobinRule();
+	}
 
 }
